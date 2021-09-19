@@ -101,9 +101,7 @@ public class MainActivity extends AppCompatActivity {
     private void runFaceDetector(Bitmap bitmap) {
         FirebaseVisionImage firebaseVisionImage = FirebaseVisionImage.fromBitmap(bitmap);
         FirebaseVisionFaceDetectorOptions options = new FirebaseVisionFaceDetectorOptions.Builder()
-                .setPerformanceMode(FirebaseVisionFaceDetectorOptions.ACCURATE)
-                .setLandmarkMode(FirebaseVisionFaceDetectorOptions.ALL_LANDMARKS)
-                .setClassificationMode(FirebaseVisionFaceDetectorOptions.ALL_CLASSIFICATIONS)
+          
                 .build();
         FirebaseVisionFaceDetector detector = FirebaseVision.getInstance()
                 .getVisionFaceDetector(options);
@@ -130,9 +128,9 @@ public class MainActivity extends AppCompatActivity {
             ResultDialog resultDialog = new ResultDialog(LCOFaceDetection, Bounds);
             LCOFaceDetection.add(resultDialog);
 
-
+count++;
         }
-        count++;
+        
         Dialog.dismiss();
         Toast.makeText(this, String.format("Detected %d faces in image", count), Toast.LENGTH_SHORT).show();
 
